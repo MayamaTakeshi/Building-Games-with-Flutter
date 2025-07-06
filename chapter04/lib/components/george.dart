@@ -1,6 +1,6 @@
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
-import 'package:flame/geometry.dart';
 import 'package:flame/sprite.dart';
 import 'package:goldrush/components/skeleton.dart';
 import 'package:goldrush/components/zombie.dart';
@@ -23,12 +23,12 @@ class George extends Character {
 
     changeDirection();
 
-    addHitbox(HitboxRectangle());
+    add(RectangleHitbox());
   }
 
   @override
-  void onCollision(Set<Vector2> points, Collidable other) {
-    super.onCollision(points, other);
+  void onCollisionStart(Set<Vector2> points, PositionComponent other) {
+    super.onCollisionStart(points, other);
 
     if (other is Zombie || other is Skeleton) {
       other.removeFromParent();

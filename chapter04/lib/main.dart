@@ -22,7 +22,7 @@ void main() async {
   );
 }
 
-class GoldRush extends FlameGame with HasCollidables {
+class GoldRush extends FlameGame with HasCollisionDetection {
 
   @override
   Future<void> onLoad() async {
@@ -34,6 +34,6 @@ class GoldRush extends FlameGame with HasCollidables {
     add (Zombie(position: Vector2(300, 200), size: Vector2(32.0, 64.0), speed: 20.0));
     add (Skeleton(position: Vector2(100, 600), size: Vector2(32.0, 64.0), speed: 60.0));
     add (Skeleton(position: Vector2(300, 600), size: Vector2(32.0, 64.0), speed: 60.0));
-    add(ScreenCollidable());
+    add(ScreenHitbox());
   }
 }
